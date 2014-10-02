@@ -125,6 +125,11 @@
             Gets or sets the set of code inspectors.
             </summary>
         </member>
+        <member name="P:RazorEngine.Compilation.CompilerServiceBase.ReferenceResolver">
+            <summary>
+            Gets or sets the assembly resolver.
+            </summary>
+        </member>
         <member name="P:RazorEngine.Compilation.CompilerServiceBase.CodeLanguage">
             <summary>
             Gets the code language.
@@ -2157,6 +2162,17 @@
             <param name="binder">The binder.</param>
             <param name="value">The value to set.</param>
             <returns>True, always.</returns>
+        </member>
+        <member name="M:RazorEngine.Templating.DynamicViewBag.SetValue(System.String,System.Object)">
+            <summary>
+            Set a value in this instance of DynamicViewBag.
+            </summary>
+            <param name="propertyName">
+            The property name through which this value can be get/set.
+            </param>
+            <param name="value">
+            The value that will be assigned to this property name.
+            </param>
         </member>
         <member name="M:RazorEngine.Templating.DynamicViewBag.AddValue(System.String,System.Object)">
             <summary>
