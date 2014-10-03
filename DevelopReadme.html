@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- GENERATED FROM COMMIT: 7bbe640f5238f934dcdec89f97286208284d7fde -->
   <head>
     <meta charset="utf-8">
     <title>RazorEngine implementation documentation
@@ -36,6 +35,11 @@
         <div class="span9" id="main">
           
 <h1><a name="RazorEngine-implementation-documentation" class="anchor" href="#RazorEngine-implementation-documentation">RazorEngine implementation documentation</a></h1>
+
+<h2><a name="Building" class="anchor" href="#Building">Building</a></h2>
+
+<p>Open the <code>.sln</code> file or run <code>./build</code>.
+NOTE: It is possible that you can only build the <code>.sln</code> file AFTER doing an initial <code>./build</code> (because nuget dependencies have to be resolved).</p>
 
 <h2><a name="General-overview" class="anchor" href="#General-overview">General overview:</a></h2>
 
@@ -74,7 +78,7 @@ This folder can safly be deleted without affecting the build.</p></li>
 <p>library dependencies. Most dependencies are automatically managed by nuget and not in this folder. 
 Only some internal dependencies and packages not in nuget. The git repository should always be "complete".</p></li>
 <li><p>/doc/</p>
-<p>Project documentation files. This folder contains both development and user documentation (currently only development documentation because the project is at an very early phase).</p></li>
+<p>Project documentation files. This folder contains both development and user documentation.</p></li>
 <li><p>/src/</p>
 <p>The Solution directory for all projects</p>
 <ul>
@@ -94,7 +98,17 @@ Only some internal dependencies and packages not in nuget. The git repository sh
 </pre>
 </td>
 <td class="snippet"><pre class="fssnip">
-<span class="i">The</span> <span class="i">root</span> <span class="k">for</span> <span class="i">all</span> <span onmouseout="hideTip(event, 'fs2', 3)" onmouseover="showTip(event, 'fs2', 3)" class="i">unit</span> <span class="i">test</span> <span class="i">projects</span></pre>
+<span class="i">The</span> <span class="i">root</span> <span class="k">for</span> <span class="i">all</span> <span onmouseout="hideTip(event, 'fs2', 3)" onmouseover="showTip(event, 'fs2', 3)" class="i">unit</span> <span class="i">test</span> <span class="i">projects</span><span class="o">.</span></pre>
+</td>
+</tr>
+</table></li>
+<li><p>/src/nugetDependencies/</p>
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="i">A</span> <span class="i">bit</span> <span class="k">of</span> <span class="i">a</span> <span class="i">hack</span> <span class="k">to</span> <span class="i">get</span> <span class="i">the</span> <span class="i">dependencies</span> <span class="k">of</span> <span class="i">the</span> <span class="o">.</span><span class="i">net40</span> <span class="i">profile</span> <span class="i">downloaded</span> <span class="i">properly</span><span class="o">.</span></pre>
 </td>
 </tr>
 </table></li>
@@ -128,9 +142,7 @@ Sometimes these unit tests can be used even by custom code (inheriting from the 
             <li class="nav-header">RazorEngine</li>
 
             <li class="divider"></li>
-        <!--
-            <li><a href="https://www.nuget.org/packages/RazorEngine/">Get RazorEngine package via NuGet</a></li>
-        -->
+            <li><a href="https://www.nuget.org/packages/RazorEngine.N/">Get RazorEngine package via NuGet</a></li>
             <li><a href="https://github.com/matthid/RazorEngine">Source Code</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues">Open bugs and feature requests</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues/new">Report Issue or Request Feature</a></li>
