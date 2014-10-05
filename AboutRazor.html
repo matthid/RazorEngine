@@ -15,7 +15,9 @@
     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
     <link type="text/css" rel="stylesheet" href="https://matthid.github.io/RazorEngine/content/style.css" />
+    <link type="text/css" rel="stylesheet" href="https://matthid.github.io/RazorEngine/content/prism.css" />
     <script type="text/javascript" src="https://matthid.github.io/RazorEngine/content/tips.js"></script>
+	<script type="text/javascript" src="https://matthid.github.io/RazorEngine/content/prism.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -46,65 +48,30 @@
 
 <p>The Razor syntax is designed to be a clean but robust syntax for merging both code and markup into a single language. Primarily Razor was designed for Html-like languages, but future editions may take advantage of the existing <code>MarkupParser</code> abstraction to deliver alternative markup languages (possibly BBCode, Latex, Markdown, etc.). An example Razor template could look like:</p>
 
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="o">&lt;</span><span class="i">div</span><span class="o">&gt;</span><span class="i">Hello</span> <span class="o">@</span><span class="i">Model</span><span class="o">.</span><span class="i">Name</span>, <span class="i">you</span> <span class="i">are</span> <span class="o">@</span><span class="i">Model</span><span class="o">.</span><span class="i">GetAge</span>() <span class="i">years</span> <span class="i">old</span><span class="o">.</span><span class="o">&lt;/</span><span class="i">div</span><span class="o">&gt;</span></pre>
-</td>
-</tr>
-</table>
+<pre class="line-numbers language-markup"><code class="language-markup">&lt;div&gt;Hello @Model.Name, you are @Model.GetAge() years old.&lt;/div&gt;</code></pre>
 
 <p>This template is transformed into the body of a method, the <code>Execute</code> method, which could look something like this:</p>
 
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
-<span class="l">5: </span>
-<span class="l">6: </span>
-<span class="l">7: </span>
-<span class="l">8: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="k">public</span> <span class="k">void</span> <span class="i">Execute</span>()
+<pre class="line-numbers language-csharp"><code class="language-csharp">public void Execute()
 {
-    <span class="i">WriteLiteral</span>(<span class="s">&quot;</span><span class="s">&lt;</span><span class="s">div</span><span class="s">&gt;</span><span class="s">Hello</span><span class="s"> </span><span class="s">&quot;</span>);
-    <span class="i">Write</span>(<span class="i">Model</span><span class="o">.</span><span class="i">Name</span>);
-    <span class="i">WriteLiteral</span>(<span class="s">&quot;</span><span class="s">,</span><span class="s"> </span><span class="s">you</span><span class="s"> </span><span class="s">are</span><span class="s"> </span><span class="s">&quot;</span>);
-    <span class="i">Write</span>(<span class="i">Model</span><span class="o">.</span><span class="i">GetAge</span>());
-    <span class="i">WriteLiteral</span>(<span class="s">&quot;</span><span class="s"> </span><span class="s">years</span><span class="s"> </span><span class="s">old</span><span class="s">.</span><span class="s">&lt;</span><span class="s">/</span><span class="s">div</span><span class="s">&gt;</span><span class="s">&quot;</span>);
-}</pre>
-</td>
-</tr>
-</table>
+    WriteLiteral(&quot;&lt;div&gt;Hello &quot;);
+    Write(Model.Name);
+    WriteLiteral(&quot;, you are &quot;);
+    Write(Model.GetAge());
+    WriteLiteral(&quot; years old.&lt;/div&gt;&quot;);
+}</code></pre>
 
 <p>This mixture of code and markup allows for quite a declarative syntax where markup becomes a first-class feature alongside the code.  Here is slightly more complex template:</p>
 
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
-<span class="l">5: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="o">&lt;</span><span class="i">ul</span><span class="o">&gt;</span>
-    <span class="o">@</span><span class="i">foreach</span> (<span class="i">Person</span> <span class="i">p</span> <span class="k">in</span> <span class="i">Model</span><span class="o">.</span><span class="i">Persons</span>) {
-        <span class="o">&lt;</span><span class="i">li</span><span class="o">&gt;</span><span class="o">@</span><span class="i">p</span><span class="o">.</span><span class="i">name</span><span class="o">&lt;/</span><span class="i">li</span><span class="o">&gt;</span>
+<pre class="line-numbers language-markup"><code class="language-markup">&lt;ul&gt;
+    @foreach (Person p in Model.Persons) {
+        &lt;li&gt;@p.name&lt;/li&gt;
     }
-<span class="o">&lt;/</span><span class="i">ul</span><span class="o">&gt;</span></pre>
-</td>
-</tr>
-</table>
+&lt;/ul&gt;</code></pre>
 
 <p>Razor understands the code language (in this case, C#) because it operates dual parsers (a code parser and a markup parser). Much like the markup parser is geared up to understand Html, the code parser (in this example), is designed to understand C#.</p>
 
-<p>For an overview of the Razor syntax, please view <a href="http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx">ScottGu's article: Introducing �Razor� � a new view engine for ASP.NET</a></p>
+<p>For an overview of the Razor syntax, please view <a href="http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx">ScottGu's article: Introducing “Razor” – a new view engine for ASP.NET</a></p>
 
 <h2><a name="Razor-vs-MVC-vs-WebPages-vs-RazorEngine" class="anchor" href="#Razor-vs-MVC-vs-WebPages-vs-RazorEngine">Razor vs. MVC vs. WebPages vs. RazorEngine</a></h2>
 

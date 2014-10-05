@@ -15,7 +15,9 @@
     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
     <link type="text/css" rel="stylesheet" href="https://matthid.github.io/RazorEngine/content/style.css" />
+    <link type="text/css" rel="stylesheet" href="https://matthid.github.io/RazorEngine/content/prism.css" />
     <script type="text/javascript" src="https://matthid.github.io/RazorEngine/content/tips.js"></script>
+	<script type="text/javascript" src="https://matthid.github.io/RazorEngine/content/prism.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -40,21 +42,10 @@
 
 <p>By default RazorEngine is configured to encode as Html. This sometimes this presents problems were certain characters are encoded as Html but what you want is to output them as-is. To output something in raw format use the <code>@Raw()</code> built-in method as shown in the following example:</p>
 
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">string</span> <span class="i">template</span> <span class="o">=</span> <span class="s">&quot;</span><span class="s">@</span><span class="s">Raw</span><span class="s">(</span><span class="s">Model</span><span class="s">.</span><span class="s">Data</span><span class="s">)</span><span class="s">&quot;</span>;
-<span class="i">var</span> <span class="i">model</span> <span class="o">=</span> <span class="k">new</span> { <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="i">Data</span> <span class="o">=</span> <span class="s">&quot;</span><span class="s">My</span><span class="s"> </span><span class="s">raw</span><span class="s"> </span><span class="s">double</span><span class="s"> </span><span class="s">quotes</span><span class="s"> </span><span class="s">appears</span><span class="s"> </span><span class="s">here</span><span class="s"> </span><span class="s">\&quot;</span><span class="s">hello</span><span class="s">!</span><span class="s">\&quot;</span><span class="s">&quot;</span> };
+<pre class="line-numbers language-csharp"><code class="language-csharp">string template = &quot;@Raw(Model.Data)&quot;;
+var model = new { Data = &quot;My raw double quotes appears here \&quot;hello!\&quot;&quot; };
 
-<span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="i">string</span> <span class="i">result</span> <span class="o">=</span> <span class="i">Razor</span><span class="o">.</span><span class="i">Parse</span>(<span class="i">template</span>, <span class="i">model</span>);</pre>
-</td>
-</tr>
-</table>
+string result = Razor.Parse(template, model);</code></pre>
 
 <p>Which should result in:</p>
 
@@ -62,8 +53,6 @@
   <p><code>My raw double quotes appears here "hello!"</code></p>
 </blockquote>
 
-<div class="tip" id="fs1">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />Full name: Microsoft.FSharp.Core.Operators.string<br /><br />--------------------<br />type string = System.String<br /><br />Full name: Microsoft.FSharp.Core.string</div>
-<div class="tip" id="fs2">namespace Microsoft.FSharp.Data</div>
 
         </div>
         <div class="span3">

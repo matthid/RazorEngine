@@ -15,7 +15,9 @@
     <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
     <link type="text/css" rel="stylesheet" href="https://matthid.github.io/RazorEngine/content/style.css" />
+    <link type="text/css" rel="stylesheet" href="https://matthid.github.io/RazorEngine/content/prism.css" />
     <script type="text/javascript" src="https://matthid.github.io/RazorEngine/content/tips.js"></script>
+	<script type="text/javascript" src="https://matthid.github.io/RazorEngine/content/prism.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -40,66 +42,30 @@
 
 <p>Here is an example template file where <code>MyCustomizedTemplate&lt;T&gt;</code> derives from RazorEngine's <code>TemplateBase&lt;T&gt;</code>:</p>
 
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l"> 1: </span>
-<span class="l"> 2: </span>
-<span class="l"> 3: </span>
-<span class="l"> 4: </span>
-<span class="l"> 5: </span>
-<span class="l"> 6: </span>
-<span class="l"> 7: </span>
-<span class="l"> 8: </span>
-<span class="l"> 9: </span>
-<span class="l">10: </span>
-<span class="l">11: </span>
-<span class="l">12: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="o">@</span><span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="i">using</span> <span class="i">MyProject</span><span class="o">.</span><span class="i">Templates</span>
-<span class="o">@</span><span onmouseout="hideTip(event, 'fs1', 2)" onmouseover="showTip(event, 'fs1', 2)" class="i">using</span> <span class="i">MyProject</span><span class="o">.</span><span class="i">Templates</span><span class="o">.</span><span class="i">Models</span>
-<span class="o">@</span><span class="i">inherits</span> <span class="i">MyCustomizedTemplate</span><span class="o">&lt;</span><span class="i">InvoiceModel</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="i">h1</span><span class="o">&gt;</span><span class="i">Your</span> <span class="i">Invoice</span> <span class="o">@</span><span class="i">Model</span><span class="o">.</span><span class="i">InvoiceNumber</span><span class="o">&lt;/</span><span class="i">h1</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="i">p</span><span class="o">&gt;</span><span class="i">The</span> <span class="i">great</span> <span class="i">stuff</span> <span class="i">you</span> <span class="i">bought</span> <span class="i">was</span><span class="o">:</span><span class="o">&lt;/</span><span class="i">p</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="i">ul</span><span class="o">&gt;</span>
-    <span class="o">@</span><span class="i">foreach</span>(<span class="i">var</span> <span class="i">line</span> <span class="k">in</span> <span class="i">Model</span><span class="o">.</span><span class="i">InvoiceLines</span>)
+<pre class="line-numbers language-markup"><code class="language-markup">@using MyProject.Templates
+@using MyProject.Templates.Models
+@inherits MyCustomizedTemplate&lt;InvoiceModel&gt;
+&lt;h1&gt;Your Invoice @Model.InvoiceNumber&lt;/h1&gt;
+&lt;p&gt;The great stuff you bought was:&lt;/p&gt;
+&lt;ul&gt;
+    @foreach(var line in Model.InvoiceLines)
     {
-        <span class="o">&lt;</span><span class="i">li</span><span class="o">&gt;</span><span class="o">@</span><span class="i">line</span><span class="o">.</span><span class="i">Code</span> <span class="o">-</span> <span class="o">@</span><span class="i">line</span><span class="o">.</span><span class="i">Description</span> <span class="k">for</span> <span class="o">@</span><span class="i">line</span><span class="o">.</span><span class="i">Price</span><span class="o">&lt;/</span><span class="i">li</span><span class="o">&gt;</span>
+        &lt;li&gt;@line.Code - @line.Description for @line.Price&lt;/li&gt;
     }
-<span class="o">&lt;/</span><span class="i">ul</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="i">h3</span><span class="o">&gt;</span><span class="i">Thanks</span> <span class="k">for</span> <span class="i">shopping</span> <span class="i">at</span> <span class="i">BuyMore</span><span class="o">&lt;/</span><span class="i">h3</span><span class="o">&gt;</span></pre>
-</td>
-</tr>
-</table>
+&lt;/ul&gt;
+&lt;h3&gt;Thanks for shopping at BuyMore&lt;/h3&gt;</code></pre>
 
 <p>The custom class would look something like this:</p>
 
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-<span class="l">4: </span>
-<span class="l">5: </span>
-<span class="l">6: </span>
-<span class="l">7: </span>
-<span class="l">8: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-<span class="k">public</span> <span class="k">class</span> <span class="i">MyCustomizedTemplate</span><span class="o">&lt;</span><span class="i">T</span><span class="o">&gt;</span> <span class="o">:</span> <span class="i">TemplateBase</span><span class="o">&lt;</span><span class="i">T</span><span class="o">&gt;</span>
+<pre class="line-numbers language-csharp"><code class="language-csharp">public class MyCustomizedTemplate&lt;T&gt; : TemplateBase&lt;T&gt;
 {
-    <span class="k">public</span> <span class="i">T</span> <span class="i">Model</span> { <span class="i">get</span>; <span onmouseout="hideTip(event, 'fs2', 3)" onmouseover="showTip(event, 'fs2', 3)" class="i">set</span>; }
+    public T Model { get; set; }
 
-    <span class="k">public</span> <span class="i">MyCustomizedTemplate</span>()
+    public MyCustomizedTemplate()
     {
     }
-}</pre>
-</td>
-</tr>
-</table>
+}</code></pre>
 
-<div class="tip" id="fs1">val using : resource:&#39;T -&gt; action:(&#39;T -&gt; &#39;U) -&gt; &#39;U (requires &#39;T :&gt; System.IDisposable)<br /><br />Full name: Microsoft.FSharp.Core.Operators.using</div>
-<div class="tip" id="fs2">val set : elements:seq&lt;&#39;T&gt; -&gt; Set&lt;&#39;T&gt; (requires comparison)<br /><br />Full name: Microsoft.FSharp.Core.ExtraTopLevelOperators.set</div>
 
         </div>
         <div class="span3">
