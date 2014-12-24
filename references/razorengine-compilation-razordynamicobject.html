@@ -43,8 +43,292 @@
     Defined in RazorEngine.dll.
 </div>
 <div class="xmldoc">
-<p>Defines a dynamic object.</p>
-</div>
+
+            Wraps a dynamic object for serialization of dynamic objects and anonymous type support.
+            But this type will also make (static) types work which are not serializable.
+            </br></div>
+  <h3>Constructors</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Constructor</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '449', 449)" onmouseover="showTip(event, '449', 449)">
+            new(info, context)
+          </code>
+          <div class="tip" id="449">
+            <strong>Signature:</strong> (info:SerializationInfo * context:StreamingContext) -&gt; unit<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Initializes a new instance of the <a href="razorengine-compilation-razordynamicobject.html">RazorDynamicObject</a> class.
+            </br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Instance members</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Instance member</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '450', 450)" onmouseover="showTip(event, '450', 450)">
+            GetObjectData(info, context)
+          </code>
+          <div class="tip" id="450">
+            <strong>Signature:</strong> (info:SerializationInfo * context:StreamingContext) -&gt; unit<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Populates a <a href="http://msdn.microsoft.com/en-us/library/System.Runtime.Serialization.SerializationInfo">SerializationInfo</a> with the data needed to serialize the target object.
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '451', 451)" onmouseover="showTip(event, '451', 451)">
+            ToString()
+          </code>
+          <div class="tip" id="451">
+            <strong>Signature:</strong> unit -&gt; string<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Override ToString and remotely invoke our wrapped instance.
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '452', 452)" onmouseover="showTip(event, '452', 452)">
+            TryConvert(binder, result)
+          </code>
+          <div class="tip" id="452">
+            <strong>Signature:</strong> (binder:ConvertBinder * result:byref&lt;obj&gt;) -&gt; bool<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '453', 453)" onmouseover="showTip(event, '453', 453)">
+            TryGetIndex(binder, indexes, result)
+          </code>
+          <div class="tip" id="453">
+            <strong>Signature:</strong> (binder:GetIndexBinder * indexes:obj [] * result:byref&lt;obj&gt;) -&gt; bool<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '454', 454)" onmouseover="showTip(event, '454', 454)">
+            TryGetMember(binder, result)
+          </code>
+          <div class="tip" id="454">
+            <strong>Signature:</strong> (binder:GetMemberBinder * result:byref&lt;obj&gt;) -&gt; bool<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '455', 455)" onmouseover="showTip(event, '455', 455)">
+            TryInvokeMember(binder, args, result)
+          </code>
+          <div class="tip" id="455">
+            <strong>Signature:</strong> (binder:InvokeMemberBinder * args:obj [] * result:byref&lt;obj&gt;) -&gt; bool<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '456', 456)" onmouseover="showTip(event, '456', 456)">
+            TrySetIndex(binder, indexes, value)
+          </code>
+          <div class="tip" id="456">
+            <strong>Signature:</strong> (binder:SetIndexBinder * indexes:obj [] * value:obj) -&gt; bool<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '457', 457)" onmouseover="showTip(event, '457', 457)">
+            TrySetMember(binder, value)
+          </code>
+          <div class="tip" id="457">
+            <strong>Signature:</strong> (binder:SetMemberBinder * value:obj) -&gt; bool<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Tries to set the member.
+            </br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3>Static members</h3>
+  <table class="table table-bordered member-list">
+    <thead>
+      <tr><td>Static member</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '458', 458)" onmouseover="showTip(event, '458', 458)">
+            Cast(o)
+          </code>
+          <div class="tip" id="458">
+            <strong>Signature:</strong> o:obj -&gt; obj<br />
+                          <strong>Type parameters:</strong> 'T          </div>
+        </td>
+        <td class="xmldoc">
+          
+            A simple generic cast method. Used for the DynamicCast implementation.
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '459', 459)" onmouseover="showTip(event, '459', 459)">
+            CompatibleWith(...)
+          </code>
+          <div class="tip" id="459">
+            <strong>Signature:</strong> (parameterInfo:ParameterInfo [] * paramTypes:Type []) -&gt; bool<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '460', 460)" onmouseover="showTip(event, '460', 460)">
+            Create(wrapped, allowMissingMembers)
+          </code>
+          <div class="tip" id="460">
+            <strong>Signature:</strong> (wrapped:obj * allowMissingMembers:bool) -&gt; obj<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Create a wrapper around an dynamic object.
+            This wrapper ensures that we can cross the <a href="http://msdn.microsoft.com/en-us/library/System.AppDomain">AppDomain</a>, 
+            call internal methods (to make Anonymous types work), 
+            or call missing methods (when allowMissingMembers is true).
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '461', 461)" onmouseover="showTip(event, '461', 461)">
+            DynamicCast(o, targetType)
+          </code>
+          <div class="tip" id="461">
+            <strong>Signature:</strong> (o:obj * targetType:Type) -&gt; obj<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            A tricky dynamic cast (Cast in the runtime with dynamic types).
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '462', 462)" onmouseover="showTip(event, '462', 462)">
+            IsPrimitive(target)
+          </code>
+          <div class="tip" id="462">
+            <strong>Signature:</strong> target:obj -&gt; bool<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Returnes true when the type of the given result is primitive.
+            (ie should not be wrapped in another <a href="razorengine-compilation-razordynamicobject.html">RazorDynamicObject</a> instance)
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '463', 463)" onmouseover="showTip(event, '463', 463)">
+            MapInterface(interface)
+          </code>
+          <div class="tip" id="463">
+            <strong>Signature:</strong> interface:Type -&gt; Type<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Convert the given interface type instance in another interface 
+            type instance which is free of anonymous types.
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '464', 464)" onmouseover="showTip(event, '464', 464)">
+            MapType(type)
+          </code>
+          <div class="tip" id="464">
+            <strong>Signature:</strong> type:Type -&gt; Type<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Try to find a type instance which has no references to anonymous types.
+            Either we use the type or create a new one which implements the same interfaces.
+            </br>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
         </div>
         <div class="span3">
@@ -66,12 +350,14 @@
             
             <li class="nav-header">Documentation</li>
               
-            <li><a href="https://matthid.github.io/RazorEngine/index.html">Introduction</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/index.html">Quick Intro</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/AboutRazor.html">About Razor and its Syntax</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/TemplateBasics.html">Templating basics</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Encoding.html">Encoding Values in Razor</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Isolation.html">Isolation and Sandboxing</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Caching.html">Caching API</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/DevelopReadme.html">Development Intro</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/ReleaseNotes.html">Release Notes</a></li>
-            <li><a href="https://matthid.github.io/RazorEngine/AboutRazor.html">About Razor and its Syntax</a></li>
-            <li><a href="https://matthid.github.io/RazorEngine/Encoding.html">Encoding Values in Razor</a></li>
-            <li><a href="https://matthid.github.io/RazorEngine/TemplateBasics.html">Templating basics</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/IntellisenseAndResharper.html">Intellisense and ReSharper</a></li>
 
             <li class="nav-header">Reference</li>

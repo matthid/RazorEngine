@@ -43,8 +43,9 @@
     Defined in RazorEngine.dll.
 </div>
 <div class="xmldoc">
-<p>Defines an exception that occurs during compilation of the template.</p>
-</div>
+
+            Defines an exception that occurs during compilation of the template.
+            </br></div>
   <h3>Constructors</h3>
   <table class="table table-bordered member-list">
     <thead>
@@ -54,16 +55,17 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '315', 315)" onmouseover="showTip(event, '315', 315)">
+          <code onmouseout="hideTip(event, '806', 806)" onmouseover="showTip(event, '806', 806)">
             new(info, context)
           </code>
-          <div class="tip" id="315">
+          <div class="tip" id="806">
             <strong>Signature:</strong> (info:SerializationInfo * context:StreamingContext) -&gt; unit<br />
                       </div>
         </td>
         <td class="xmldoc">
-          <p>Initialises a new instance of  from serialised data.</p>
-
+          
+            Initialises a new instance of <a href="razorengine-templating-templatecompilationexception.html">TemplateCompilationException</a> from serialised data.
+            </br>
         </td>
       </tr>
     </tbody>
@@ -77,62 +79,82 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '316', 316)" onmouseover="showTip(event, '316', 316)">
-            Errors()
+          <code onmouseout="hideTip(event, '807', 807)" onmouseover="showTip(event, '807', 807)">
+            CompilationData()
           </code>
-          <div class="tip" id="316">
-            <strong>Signature:</strong> unit -&gt; ReadOnlyCollection&lt;CompilerError&gt;<br />
+          <div class="tip" id="807">
+            <strong>Signature:</strong> unit -&gt; CompilationData<br />
                       </div>
         </td>
         <td class="xmldoc">
-          <p>Gets the set of compiler errors.</p>
-
+          
+            Gets some copilation specific (temporary) data.
+            </br>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '317', 317)" onmouseover="showTip(event, '317', 317)">
+          <code onmouseout="hideTip(event, '808', 808)" onmouseover="showTip(event, '808', 808)">
+            Errors()
+          </code>
+          <div class="tip" id="808">
+            <strong>Signature:</strong> unit -&gt; ReadOnlyCollection&lt;CompilerError&gt;<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Gets the set of compiler errors.
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '809', 809)" onmouseover="showTip(event, '809', 809)">
             GetObjectData(info, context)
           </code>
-          <div class="tip" id="317">
+          <div class="tip" id="809">
             <strong>Signature:</strong> (info:SerializationInfo * context:StreamingContext) -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
         </td>
         <td class="xmldoc">
-          <p>Gets the object data for serialisation.</p>
-
+          
+            Gets the object data for serialisation.
+            </br>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '318', 318)" onmouseover="showTip(event, '318', 318)">
+          <code onmouseout="hideTip(event, '810', 810)" onmouseover="showTip(event, '810', 810)">
             SourceCode()
           </code>
-          <div class="tip" id="318">
+          <div class="tip" id="810">
             <strong>Signature:</strong> unit -&gt; string<br />
                       </div>
         </td>
         <td class="xmldoc">
-          <p>Gets the source code that wasn't compiled.</p>
-
+          
+            Gets the generated source code.
+            </br>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '319', 319)" onmouseover="showTip(event, '319', 319)">
+          <code onmouseout="hideTip(event, '811', 811)" onmouseover="showTip(event, '811', 811)">
             Template()
           </code>
-          <div class="tip" id="319">
+          <div class="tip" id="811">
             <strong>Signature:</strong> unit -&gt; string<br />
                       </div>
         </td>
         <td class="xmldoc">
-          <p>Gets the source template that wasn't compiled.</p>
-
+          
+            Gets the source template that wasn't compiled.
+            </br>
         </td>
       </tr>
     </tbody>
@@ -158,12 +180,14 @@
             
             <li class="nav-header">Documentation</li>
               
-            <li><a href="https://matthid.github.io/RazorEngine/index.html">Introduction</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/index.html">Quick Intro</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/AboutRazor.html">About Razor and its Syntax</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/TemplateBasics.html">Templating basics</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Encoding.html">Encoding Values in Razor</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Isolation.html">Isolation and Sandboxing</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Caching.html">Caching API</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/DevelopReadme.html">Development Intro</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/ReleaseNotes.html">Release Notes</a></li>
-            <li><a href="https://matthid.github.io/RazorEngine/AboutRazor.html">About Razor and its Syntax</a></li>
-            <li><a href="https://matthid.github.io/RazorEngine/Encoding.html">Encoding Values in Razor</a></li>
-            <li><a href="https://matthid.github.io/RazorEngine/TemplateBasics.html">Templating basics</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/IntellisenseAndResharper.html">Intellisense and ReSharper</a></li>
 
             <li class="nav-header">Reference</li>

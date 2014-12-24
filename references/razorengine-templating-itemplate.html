@@ -43,8 +43,9 @@
     Defined in RazorEngine.dll.
 </div>
 <div class="xmldoc">
-<p>Defines the required contract for implementing a template.</p>
-</div>
+
+            Defines the required contract for implementing a template.
+            </br></div>
   <h3>Instance members</h3>
   <table class="table table-bordered member-list">
     <thead>
@@ -54,81 +55,137 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '234', 234)" onmouseover="showTip(event, '234', 234)">
+          <code onmouseout="hideTip(event, '655', 655)" onmouseover="showTip(event, '655', 655)">
             Execute()
           </code>
-          <div class="tip" id="234">
+          <div class="tip" id="655">
             <strong>Signature:</strong> unit -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
         </td>
         <td class="xmldoc">
-          <p>Executes the compiled template.</p>
-
+          
+            Executes the compiled template.
+            </br>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '235', 235)" onmouseover="showTip(event, '235', 235)">
-            Run(context)
+          <code onmouseout="hideTip(event, '656', 656)" onmouseover="showTip(event, '656', 656)">
+            InternalTemplateService()
           </code>
-          <div class="tip" id="235">
-            <strong>Signature:</strong> context:ExecuteContext -&gt; string<br />
+          <div class="tip" id="656">
+            <strong>Signature:</strong> unit -&gt; IInternalTemplateService<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
         </td>
         <td class="xmldoc">
-          <p>Runs the template and returns the result.</p>
-
+          
+            Sets the internal template service.
+            </br>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '236', 236)" onmouseover="showTip(event, '236', 236)">
+          <code onmouseout="hideTip(event, '657', 657)" onmouseover="showTip(event, '657', 657)">
+            RazorEngine()
+          </code>
+          <div class="tip" id="657">
+            <strong>Signature:</strong> unit -&gt; IRazorEngineService<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Sets the cached template service.
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '658', 658)" onmouseover="showTip(event, '658', 658)">
+            Run(context, writer)
+          </code>
+          <div class="tip" id="658">
+            <strong>Signature:</strong> (context:ExecuteContext * writer:TextWriter) -&gt; unit<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Runs the template and returns the result.
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '659', 659)" onmouseover="showTip(event, '659', 659)">
+            SetModel(model)
+          </code>
+          <div class="tip" id="659">
+            <strong>Signature:</strong> model:obj -&gt; unit<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            Set the model of the template (if applicable).
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '660', 660)" onmouseover="showTip(event, '660', 660)">
             TemplateService()
           </code>
-          <div class="tip" id="236">
+          <div class="tip" id="660">
             <strong>Signature:</strong> unit -&gt; ITemplateService<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
         </td>
         <td class="xmldoc">
-          <p>Sets the template service.</p>
-
+          
+            OBSOLETE: Sets the template service.
+            </br>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '237', 237)" onmouseover="showTip(event, '237', 237)">
+          <code onmouseout="hideTip(event, '661', 661)" onmouseover="showTip(event, '661', 661)">
             Write(value)
           </code>
-          <div class="tip" id="237">
+          <div class="tip" id="661">
             <strong>Signature:</strong> value:obj -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
         </td>
         <td class="xmldoc">
-          <p>Writes the specified object to the result.</p>
-
+          
+            Writes the specified object to the result.
+            </br>
         </td>
       </tr>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '238', 238)" onmouseover="showTip(event, '238', 238)">
+          <code onmouseout="hideTip(event, '662', 662)" onmouseover="showTip(event, '662', 662)">
             WriteLiteral(literal)
           </code>
-          <div class="tip" id="238">
+          <div class="tip" id="662">
             <strong>Signature:</strong> literal:string -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
         </td>
         <td class="xmldoc">
-          <p>Writes the specified string to the result.</p>
-
+          
+            Writes the specified string to the result.
+            </br>
         </td>
       </tr>
     </tbody>
@@ -154,12 +211,14 @@
             
             <li class="nav-header">Documentation</li>
               
-            <li><a href="https://matthid.github.io/RazorEngine/index.html">Introduction</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/index.html">Quick Intro</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/AboutRazor.html">About Razor and its Syntax</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/TemplateBasics.html">Templating basics</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Encoding.html">Encoding Values in Razor</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Isolation.html">Isolation and Sandboxing</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Caching.html">Caching API</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/DevelopReadme.html">Development Intro</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/ReleaseNotes.html">Release Notes</a></li>
-            <li><a href="https://matthid.github.io/RazorEngine/AboutRazor.html">About Razor and its Syntax</a></li>
-            <li><a href="https://matthid.github.io/RazorEngine/Encoding.html">Encoding Values in Razor</a></li>
-            <li><a href="https://matthid.github.io/RazorEngine/TemplateBasics.html">Templating basics</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/IntellisenseAndResharper.html">Intellisense and ReSharper</a></li>
 
             <li class="nav-header">Reference</li>
