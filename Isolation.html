@@ -75,30 +75,19 @@ or use the Func<AppDomain> overloads of <code>IsolatedRazorEngineService.Create<
     {
         string file = Path.Combine(Environment.CurrentDirectory, Path.GetRandomFileName());
 
-        string template = @&quot;</code></pre>
-
-<p>@using System.IO
+        string template = @&quot;
+@using System.IO
 @{
-File.WriteAllText(""<span class="math">\(file\)</span>"", ""BAD DATA"");
-}".Replace("<span class="math">\(file\)</span>", file.Replace("\", "\\"));
-            Assert.Throws<SecurityException>(() =>
-            {
-                service.RunCompile(template, "test");
-            });</p>
+File.WriteAllText(&quot;&quot;$file$&quot;&quot;, &quot;&quot;BAD DATA&quot;&quot;);
+}&quot;.Replace(&quot;$file$&quot;, file.Replace(&quot;\\&quot;, &quot;\\\\&quot;));
+        Assert.Throws&lt;SecurityException&gt;(() =&gt;
+        {
+            service.RunCompile(template, &quot;test&quot;);
+        });
 
-<table class="pre"><tr><td class="lines"><pre class="fssnip">
-<span class="l">1: </span>
-<span class="l">2: </span>
-<span class="l">3: </span>
-</pre>
-</td>
-<td class="snippet"><pre class="fssnip">
-        <span class="i">Assert</span><span class="o">.</span><span class="i">IsFalse</span>(<span class="i">File</span><span class="o">.</span><span class="i">Exists</span>(<span class="i">file</span>));
+        Assert.IsFalse(File.Exists(file));
     }
-}</pre>
-</td>
-</tr>
-</table>
+}</code></pre>
 
 <p>As you can see this template will throw a SecurityException as there is no way for it
 to write into a file of the local harddrive.</p>
