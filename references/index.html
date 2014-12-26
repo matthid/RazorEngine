@@ -694,6 +694,16 @@
         </tr>
         <tr>
           <td class="type-name">
+            <a href="razorengine-crossappdomainobject.html">CrossAppDomainObject</a>
+          </td>
+          <td class="xmldoc">
+            Enables access to objects across application domain boundaries.
+            This type differs from <a href="http://msdn.microsoft.com/en-us/library/System.MarshalByRefObject">MarshalByRefObject</a> by ensuring that the
+            service lifetime is managed deterministically by the consumer.
+            </br></td>
+        </tr>
+        <tr>
+          <td class="type-name">
             <a href="razorengine-encoding.html">Encoding</a>
           </td>
           <td class="xmldoc">
@@ -805,16 +815,6 @@
           </td>
           <td class="xmldoc">
             Provides service methods for compilation.
-            </br></td>
-        </tr>
-        <tr>
-          <td class="type-name">
-            <a href="razorengine-compilation-crossappdomainobject.html">CrossAppDomainObject</a>
-          </td>
-          <td class="xmldoc">
-            Enables access to objects across application domain boundaries.
-            This type differs from <a href="http://msdn.microsoft.com/en-us/library/System.MarshalByRefObject">MarshalByRefObject</a> by ensuring that the
-            service lifetime is managed deterministically by the consumer.
             </br></td>
         </tr>
         <tr>
@@ -1474,6 +1474,9 @@
           </td>
           <td class="xmldoc">
             Provides a base implementation of a template.
+            NOTE: This class is not serializable to prevent subtle errors 
+            in user IActivator implementations which would break the sandbox.
+            (because executed in the wrong <a href="http://msdn.microsoft.com/en-us/library/System.AppDomain">AppDomain</a>)
             </br></td>
         </tr>
         <tr>

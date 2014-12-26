@@ -45,6 +45,9 @@
 <div class="xmldoc">
 
             Provides a base implementation of a template.
+            NOTE: This class is not serializable to prevent subtle errors 
+            in user IActivator implementations which would break the sandbox.
+            (because executed in the wrong <a href="http://msdn.microsoft.com/en-us/library/System.AppDomain">AppDomain</a>)
             </br></div>
   <h3>Constructors</h3>
   <table class="table table-bordered member-list">
@@ -55,10 +58,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '777', 777)" onmouseover="showTip(event, '777', 777)">
+          <code onmouseout="hideTip(event, '779', 779)" onmouseover="showTip(event, '779', 779)">
             new()
           </code>
-          <div class="tip" id="777">
+          <div class="tip" id="779">
             <strong>Signature:</strong> unit -&gt; unit<br />
                       </div>
         </td>
@@ -79,10 +82,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '778', 778)" onmouseover="showTip(event, '778', 778)">
+          <code onmouseout="hideTip(event, '780', 780)" onmouseover="showTip(event, '780', 780)">
             CurrentWriter()
           </code>
-          <div class="tip" id="778">
+          <div class="tip" id="780">
             <strong>Signature:</strong> unit -&gt; TextWriter<br />
                       </div>
         </td>
@@ -95,10 +98,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '779', 779)" onmouseover="showTip(event, '779', 779)">
+          <code onmouseout="hideTip(event, '781', 781)" onmouseover="showTip(event, '781', 781)">
             DefineSection(name, action)
           </code>
-          <div class="tip" id="779">
+          <div class="tip" id="781">
             <strong>Signature:</strong> (name:string * action:Action) -&gt; unit<br />
                       </div>
         </td>
@@ -111,10 +114,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '780', 780)" onmouseover="showTip(event, '780', 780)">
+          <code onmouseout="hideTip(event, '782', 782)" onmouseover="showTip(event, '782', 782)">
             Execute()
           </code>
-          <div class="tip" id="780">
+          <div class="tip" id="782">
             <strong>Signature:</strong> unit -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -128,10 +131,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '781', 781)" onmouseover="showTip(event, '781', 781)">
+          <code onmouseout="hideTip(event, '783', 783)" onmouseover="showTip(event, '783', 783)">
             Include(name, model, modelType)
           </code>
-          <div class="tip" id="781">
+          <div class="tip" id="783">
             <strong>Signature:</strong> (name:string * model:obj * modelType:Type) -&gt; TemplateWriter<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -145,10 +148,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '782', 782)" onmouseover="showTip(event, '782', 782)">
+          <code onmouseout="hideTip(event, '784', 784)" onmouseover="showTip(event, '784', 784)">
             IsSectionDefined(name)
           </code>
-          <div class="tip" id="782">
+          <div class="tip" id="784">
             <strong>Signature:</strong> name:string -&gt; bool<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -162,10 +165,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '783', 783)" onmouseover="showTip(event, '783', 783)">
+          <code onmouseout="hideTip(event, '785', 785)" onmouseover="showTip(event, '785', 785)">
             Layout()
           </code>
-          <div class="tip" id="783">
+          <div class="tip" id="785">
             <strong>Signature:</strong> unit -&gt; string<br />
                       </div>
         </td>
@@ -178,10 +181,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '784', 784)" onmouseover="showTip(event, '784', 784)">
+          <code onmouseout="hideTip(event, '786', 786)" onmouseover="showTip(event, '786', 786)">
             Raw(rawString)
           </code>
-          <div class="tip" id="784">
+          <div class="tip" id="786">
             <strong>Signature:</strong> rawString:string -&gt; IEncodedString<br />
                       </div>
         </td>
@@ -194,10 +197,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '785', 785)" onmouseover="showTip(event, '785', 785)">
+          <code onmouseout="hideTip(event, '787', 787)" onmouseover="showTip(event, '787', 787)">
             RazorEngine()
           </code>
-          <div class="tip" id="785">
+          <div class="tip" id="787">
             <strong>Signature:</strong> unit -&gt; IRazorEngineService<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -211,10 +214,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '786', 786)" onmouseover="showTip(event, '786', 786)">
+          <code onmouseout="hideTip(event, '788', 788)" onmouseover="showTip(event, '788', 788)">
             RenderBody()
           </code>
-          <div class="tip" id="786">
+          <div class="tip" id="788">
             <strong>Signature:</strong> unit -&gt; TemplateWriter<br />
                       </div>
         </td>
@@ -227,10 +230,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '787', 787)" onmouseover="showTip(event, '787', 787)">
+          <code onmouseout="hideTip(event, '789', 789)" onmouseover="showTip(event, '789', 789)">
             RenderSection(name, isRequired)
           </code>
-          <div class="tip" id="787">
+          <div class="tip" id="789">
             <strong>Signature:</strong> (name:string * isRequired:bool) -&gt; TemplateWriter<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -244,10 +247,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '788', 788)" onmouseover="showTip(event, '788', 788)">
+          <code onmouseout="hideTip(event, '790', 790)" onmouseover="showTip(event, '790', 790)">
             ResolveUrl(path)
           </code>
-          <div class="tip" id="788">
+          <div class="tip" id="790">
             <strong>Signature:</strong> path:string -&gt; string<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -261,10 +264,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '789', 789)" onmouseover="showTip(event, '789', 789)">
+          <code onmouseout="hideTip(event, '791', 791)" onmouseover="showTip(event, '791', 791)">
             set_InternalTemplateService(value)
           </code>
-          <div class="tip" id="789">
+          <div class="tip" id="791">
             <strong>Signature:</strong> value:IInternalTemplateService -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -276,10 +279,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '790', 790)" onmouseover="showTip(event, '790', 790)">
+          <code onmouseout="hideTip(event, '792', 792)" onmouseover="showTip(event, '792', 792)">
             SetModel(model)
           </code>
-          <div class="tip" id="790">
+          <div class="tip" id="792">
             <strong>Signature:</strong> model:obj -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -293,10 +296,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '791', 791)" onmouseover="showTip(event, '791', 791)">
+          <code onmouseout="hideTip(event, '793', 793)" onmouseover="showTip(event, '793', 793)">
             TemplateService()
           </code>
-          <div class="tip" id="791">
+          <div class="tip" id="793">
             <strong>Signature:</strong> unit -&gt; ITemplateService<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -310,10 +313,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '792', 792)" onmouseover="showTip(event, '792', 792)">
+          <code onmouseout="hideTip(event, '794', 794)" onmouseover="showTip(event, '794', 794)">
             ViewBag()
           </code>
-          <div class="tip" id="792">
+          <div class="tip" id="794">
             <strong>Signature:</strong> unit -&gt; obj<br />
                       </div>
         </td>
@@ -326,10 +329,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '793', 793)" onmouseover="showTip(event, '793', 793)">
+          <code onmouseout="hideTip(event, '795', 795)" onmouseover="showTip(event, '795', 795)">
             Write(value)
           </code>
-          <div class="tip" id="793">
+          <div class="tip" id="795">
             <strong>Signature:</strong> value:obj -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -343,10 +346,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '794', 794)" onmouseover="showTip(event, '794', 794)">
+          <code onmouseout="hideTip(event, '796', 796)" onmouseover="showTip(event, '796', 796)">
             Write(helper)
           </code>
-          <div class="tip" id="794">
+          <div class="tip" id="796">
             <strong>Signature:</strong> helper:TemplateWriter -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -360,10 +363,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '795', 795)" onmouseover="showTip(event, '795', 795)">
+          <code onmouseout="hideTip(event, '797', 797)" onmouseover="showTip(event, '797', 797)">
             WriteAttribute(...)
           </code>
-          <div class="tip" id="795">
+          <div class="tip" id="797">
             <strong>Signature:</strong> (name:string * prefix:PositionTagged&lt;string&gt; * suffix:PositionTagged&lt;string&gt; * values:AttributeValue []) -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -375,10 +378,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '796', 796)" onmouseover="showTip(event, '796', 796)">
+          <code onmouseout="hideTip(event, '798', 798)" onmouseover="showTip(event, '798', 798)">
             WriteAttributeTo(...)
           </code>
-          <div class="tip" id="796">
+          <div class="tip" id="798">
             <strong>Signature:</strong> (writer:TextWriter * name:string * prefix:PositionTagged&lt;string&gt; * suffix:PositionTagged&lt;string&gt; * values:AttributeValue []) -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -390,10 +393,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '797', 797)" onmouseover="showTip(event, '797', 797)">
+          <code onmouseout="hideTip(event, '799', 799)" onmouseover="showTip(event, '799', 799)">
             WriteLiteral(literal)
           </code>
-          <div class="tip" id="797">
+          <div class="tip" id="799">
             <strong>Signature:</strong> literal:string -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -407,10 +410,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '798', 798)" onmouseover="showTip(event, '798', 798)">
+          <code onmouseout="hideTip(event, '800', 800)" onmouseover="showTip(event, '800', 800)">
             WriteLiteralTo(writer, literal)
           </code>
-          <div class="tip" id="798">
+          <div class="tip" id="800">
             <strong>Signature:</strong> (writer:TextWriter * literal:string) -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -424,10 +427,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '799', 799)" onmouseover="showTip(event, '799', 799)">
+          <code onmouseout="hideTip(event, '801', 801)" onmouseover="showTip(event, '801', 801)">
             WriteTo(writer, value)
           </code>
-          <div class="tip" id="799">
+          <div class="tip" id="801">
             <strong>Signature:</strong> (writer:TextWriter * value:obj) -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -441,10 +444,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '800', 800)" onmouseover="showTip(event, '800', 800)">
+          <code onmouseout="hideTip(event, '802', 802)" onmouseover="showTip(event, '802', 802)">
             WriteTo(writer, helper)
           </code>
-          <div class="tip" id="800">
+          <div class="tip" id="802">
             <strong>Signature:</strong> (writer:TextWriter * helper:TemplateWriter) -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
