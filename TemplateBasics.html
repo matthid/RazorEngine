@@ -44,12 +44,12 @@
 
 <p>RazorEngine provides a base implementation of a template class, the <code>TemplateBase</code>, this is normally superseded by the model specific template class, 
 the <code>TemplateBase&lt;T&gt;</code>. For most use cases, we're hoping this will be enough. 
-To get started with template using RazorEngine, you can simply use the static <code>RazorService</code> type:</p>
+To get started with template using RazorEngine, you can simply use the static <code>Engine</code> type (the <code>Engine.Razor</code> instance):</p>
 
 <pre class="line-numbers language-csharp"><code class="language-csharp">string template = &quot;&lt;div&gt;Hello @Model.Name&lt;/div&gt;&quot;;
 var model = new Person { Name = &quot;Matt&quot; };
 
-string result = RazorService.RunCompile(template, &quot;key&quot;, typeof(Person), model);</code></pre>
+string result = Engine.Razor.RunCompile(template, &quot;key&quot;, typeof(Person), model);</code></pre>
 
 <p>Which should result in:</p>
 
@@ -66,7 +66,7 @@ The set of statements to use an anonymous model, is exactly the same as a static
 <pre class="line-numbers language-csharp"><code class="language-csharp">string template = &quot;&lt;div&gt;Hello @Model.Name&lt;/div&gt;&quot;;
 var model = new { Name = &quot;Matt&quot; };
 
-string result = RazorService.RunCompile(template, &quot;key&quot;, null, model);</code></pre>
+string result = Engine.Razor.RunCompile(template, &quot;key&quot;, null, model);</code></pre>
 
 <p>Because the generated anonymous type is internal so RazorEngine needs to use some tricks to make this work. 
 This is also the reason you can't use <code>model.GetType()</code> in this situation.
@@ -88,7 +88,7 @@ All you need to do is to use <code>null</code> for the <code>modelType</code> pa
 dynamic model = new ExpandoObject();
 model.Name = &quot;Matt&quot;;
 
-string result = RazorService.RunCompile(template, &quot;key&quot;, null, (object)model);</code></pre>
+string result = Engine.Razor.RunCompile(template, &quot;key&quot;, null, (object)model);</code></pre>
 
 <blockquote>
   <p>Note: You can run into problems when not casting the model to object.</p>
@@ -167,7 +167,7 @@ using (var service = RazorEngineService.Create(config))
             <li class="nav-header">RazorEngine</li>
 
             <li class="divider"></li>
-            <li><a href="https://www.nuget.org/packages/RazorEngine.N/">Get RazorEngine package via NuGet</a></li>
+            <li><a href="https://www.nuget.org/packages/RazorEngine/">Get RazorEngine package via NuGet</a></li>
             <li><a href="https://github.com/matthid/RazorEngine">Source Code</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues">Open bugs and feature requests</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues/new">Report Issue or Request Feature</a></li>
@@ -185,6 +185,7 @@ using (var service = RazorEngineService.Create(config))
             <li><a href="https://matthid.github.io/RazorEngine/DevelopReadme.html">Development Intro</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/ReleaseNotes.html">Release Notes</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/IntellisenseAndResharper.html">Intellisense and ReSharper</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Roslyn.html">Roslyn Support</a></li>
 
             <li class="nav-header">Reference</li>
               

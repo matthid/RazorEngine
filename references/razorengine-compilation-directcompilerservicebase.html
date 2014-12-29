@@ -55,10 +55,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '438', 438)" onmouseover="showTip(event, '438', 438)">
+          <code onmouseout="hideTip(event, '418', 418)" onmouseover="showTip(event, '418', 418)">
             new(...)
           </code>
-          <div class="tip" id="438">
+          <div class="tip" id="418">
             <strong>Signature:</strong> (codeLanguage:RazorCodeLanguage * codeDomProvider:CodeDomProvider * markupParserFactory:Func&lt;ParserBase&gt;) -&gt; unit<br />
                       </div>
         </td>
@@ -77,10 +77,27 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '439', 439)" onmouseover="showTip(event, '439', 439)">
+          <code onmouseout="hideTip(event, '419', 419)" onmouseover="showTip(event, '419', 419)">
+            CodeDomProvider()
+          </code>
+          <div class="tip" id="419">
+            <strong>Signature:</strong> unit -&gt; CodeDomProvider<br />
+              <strong>Modifiers:</strong> abstract<br />
+                      </div>
+        </td>
+        <td class="xmldoc">
+          
+            The underlaying CodeDomProvider instance.
+            </br>
+        </td>
+      </tr>
+      <tr>
+        <td class="member-name">
+
+          <code onmouseout="hideTip(event, '420', 420)" onmouseover="showTip(event, '420', 420)">
             CompileType(context)
           </code>
-          <div class="tip" id="439">
+          <div class="tip" id="420">
             <strong>Signature:</strong> context:TypeContext -&gt; Type * CompilationData<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -94,10 +111,10 @@
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '440', 440)" onmouseover="showTip(event, '440', 440)">
+          <code onmouseout="hideTip(event, '421', 421)" onmouseover="showTip(event, '421', 421)">
             Dispose()
           </code>
-          <div class="tip" id="440">
+          <div class="tip" id="421">
             <strong>Signature:</strong> unit -&gt; unit<br />
               <strong>Modifiers:</strong> abstract<br />
                       </div>
@@ -108,27 +125,20 @@
             </br>
         </td>
       </tr>
-    </tbody>
-  </table>
-  <h3>Static members</h3>
-  <table class="table table-bordered member-list">
-    <thead>
-      <tr><td>Static member</td><td>Description</td></tr>
-    </thead>
-    <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '441', 441)" onmouseover="showTip(event, '441', 441)">
-            GetTemporaryDirectory()
+          <code onmouseout="hideTip(event, '422', 422)" onmouseover="showTip(event, '422', 422)">
+            InspectSource(results, context)
           </code>
-          <div class="tip" id="441">
-            <strong>Signature:</strong> unit -&gt; string<br />
+          <div class="tip" id="422">
+            <strong>Signature:</strong> (results:GeneratorResults * context:TypeContext) -&gt; string<br />
+              <strong>Modifiers:</strong> abstract<br />
                       </div>
         </td>
         <td class="xmldoc">
           
-            Tries to create and return a unique temporary directory.
+            Inspects the GeneratorResults and returns the source code.
             </br>
         </td>
       </tr>
@@ -146,7 +156,7 @@
             <li class="nav-header">RazorEngine</li>
 
             <li class="divider"></li>
-            <li><a href="https://www.nuget.org/packages/RazorEngine.N/">Get RazorEngine package via NuGet</a></li>
+            <li><a href="https://www.nuget.org/packages/RazorEngine/">Get RazorEngine package via NuGet</a></li>
             <li><a href="https://github.com/matthid/RazorEngine">Source Code</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues">Open bugs and feature requests</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues/new">Report Issue or Request Feature</a></li>
@@ -164,6 +174,7 @@
             <li><a href="https://matthid.github.io/RazorEngine/DevelopReadme.html">Development Intro</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/ReleaseNotes.html">Release Notes</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/IntellisenseAndResharper.html">Intellisense and ReSharper</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Roslyn.html">Roslyn Support</a></li>
 
             <li class="nav-header">Reference</li>
               

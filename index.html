@@ -36,10 +36,10 @@
       <div class="row">
         <div class="span9" id="main">
           
-<!-- GENERATED FROM COMMIT: 61ae286b3a5d495fbbc62725192782d12eaa2d29 -->
+<!-- GENERATED FROM COMMIT: 5f41586736abb05867d5bf3b8e9c330aacc24f7b -->
 <h1><a name="RazorEngine" class="anchor" href="#RazorEngine">RazorEngine</a></h1>
 
-<p>Documentation also available on <a href="http://Antaris.github.io/RazorEngine/.">http://Antaris.github.io/RazorEngine/.</a></p>
+<p>Documentation also available on <a href="http://antaris.github.io/RazorEngine/.">http://antaris.github.io/RazorEngine/.</a></p>
 
 <h2><a name="Build-status" class="anchor" href="#Build-status">Build status</a></h2>
 
@@ -68,22 +68,22 @@
 </table>
 
 <p>A templating engine built on Microsoft's Razor parsing engine, RazorEngine allows you to use Razor syntax to build dynamic templates.
-All you need to do is use the static <code>RazorService</code> class:</p>
+All you need to do is use the static <code>Engine</code> class (the <code>Engine.Razor</code> instance):</p>
 
 <pre class="line-numbers language-csharp"><code class="language-csharp">string template = &quot;Hello @Model.Name, welcome to RazorEngine!&quot;;
 var result =
-    RazorService.RunCompile(template, &quot;templateKey&quot;, null, new { Name = &quot;World&quot; });</code></pre>
+    Engine.Razor.RunCompile(template, &quot;templateKey&quot;, null, new { Name = &quot;World&quot; });</code></pre>
 
 <p>The <code>"templateKey"</code> must be unique and after running the above example you can re-run the cached template with this key.</p>
 
 <pre class="line-numbers language-csharp"><code class="language-csharp">var result =
-    RazorService.Run(&quot;templateKey&quot;, null, new { Name = &quot;Max&quot; });</code></pre>
+    Engine.Razor.Run(&quot;templateKey&quot;, null, new { Name = &quot;Max&quot; });</code></pre>
 
 <p>The null parameter is the <code>modelType</code> and <code>null</code> in this case means we use <code>dynamic</code> as the type of the model.
 You can use a static model as well by providing a type object.</p>
 
 <pre class="line-numbers language-csharp"><code class="language-csharp">var result =
-    RazorService.RunCompile(&quot;templateKey&quot;, typeof(Person), new Person { Name = &quot;Max&quot; });</code></pre>
+    Engine.Razor.RunCompile(&quot;templateKey&quot;, typeof(Person), new Person { Name = &quot;Max&quot; });</code></pre>
 
 <p>Note that we now re-compile the model with a different type. 
 When you do not run the same template a lot of times (like several 1000 times), compiling uses the most time.
@@ -102,9 +102,9 @@ on every call to prevent unnecessary re-compilations because of type mismatches 
 
 var service = RazorEngineService.Create(config);</code></pre>
 
-<p>If you want to use the static <code>RazorService</code> class with this new configuration:</p>
+<p>If you want to use the static <code>Engine</code> class with this new configuration:</p>
 
-<pre class="line-numbers language-csharp"><code class="language-csharp">RazorService.SetRazorEngine(service);</code></pre>
+<pre class="line-numbers language-csharp"><code class="language-csharp">Engine.Razor = service;</code></pre>
 
 <h3><a name="General-Configuration" class="anchor" href="#General-Configuration">General Configuration</a></h3>
 
@@ -130,7 +130,7 @@ To provide RazorEngine with the necessary information you need to tell where the
 <pre class="line-numbers language-csharp"><code class="language-csharp">string template = &quot;Hello @Model.Name, welcome to RazorEngine!&quot;;
 string templateFile = &quot;C:/mytemplate.cshtml&quot;
 var result =
-    RazorService.RunCompile(new LoadedTemplateSource(template, templateFile), &quot;templateKey&quot;, null, new { Name = &quot;World&quot; });</code></pre>
+    Engine.Razor.RunCompile(new LoadedTemplateSource(template, templateFile), &quot;templateKey&quot;, null, new { Name = &quot;World&quot; });</code></pre>
 
 <p>This time when debugging the template you will jump right into the template file.</p>
 
@@ -196,7 +196,7 @@ You can get and modify this list (and return it in your own implementation if yo
 
 <h2><a name="General-API-design" class="anchor" href="#General-API-design">General API design</a></h2>
 
-<p>While the static <code>RazorService</code> class is a good and quick way to start I recommend 
+<p>While the static <code>Engine</code> class is a good and quick way to start I recommend 
 using the instance based API (<code>RazorEngineService.Create</code>) sooner or later.</p>
 
 <p>On the right side you can find links to advanced topics and additional documentation.
@@ -214,7 +214,7 @@ You should definitely read "About Razor" and "Template basics".</p>
             <li class="nav-header">RazorEngine</li>
 
             <li class="divider"></li>
-            <li><a href="https://www.nuget.org/packages/RazorEngine.N/">Get RazorEngine package via NuGet</a></li>
+            <li><a href="https://www.nuget.org/packages/RazorEngine/">Get RazorEngine package via NuGet</a></li>
             <li><a href="https://github.com/matthid/RazorEngine">Source Code</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues">Open bugs and feature requests</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues/new">Report Issue or Request Feature</a></li>
@@ -232,6 +232,7 @@ You should definitely read "About Razor" and "Template basics".</p>
             <li><a href="https://matthid.github.io/RazorEngine/DevelopReadme.html">Development Intro</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/ReleaseNotes.html">Release Notes</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/IntellisenseAndResharper.html">Intellisense and ReSharper</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Roslyn.html">Roslyn Support</a></li>
 
             <li class="nav-header">Reference</li>
               

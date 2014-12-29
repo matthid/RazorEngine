@@ -2,9 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>IAssemblyReferenceResolver - RazorEngine</title>
+    <title>Roslyn compiler support
+</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="Simple templating using Razor syntax.">
     <meta name="author" content="Matthew Abbott">
 
     <script src="https://code.jquery.com/jquery-1.8.0.js"></script>
@@ -35,40 +36,38 @@
       <div class="row">
         <div class="span9" id="main">
           
+<h1><a name="Roslyn-compiler-support" class="anchor" href="#Roslyn-compiler-support">Roslyn compiler support</a></h1>
 
+<p>Starting with 3.5.0 RazorEngine supports the Roslyn compilers (via the Microsoft.CodeAnalysis nuget package).
+The first thing you want to do is install the additional package:</p>
 
+<table class="pre"><tr><td class="lines"><pre class="fssnip">
+<span class="l">1: </span>
+</pre>
+</td>
+<td class="snippet"><pre class="fssnip">
+<span class="i">Install</span><span class="o">-</span><span class="i">Package</span> <span class="i">RazorEngine</span><span class="o">.</span><span class="i">Roslyn</span></pre>
+</td>
+</tr>
+</table>
 
-<h1>IAssemblyReferenceResolver </h1>
-<div class="xmldoc">
-    Defined in RazorEngine.dll.
-</div>
-<div class="xmldoc">
+<blockquote>
+  <p>If you use the 4.x series (RazorEngine) you need the 4.x series of RazorEngine.Roslyn.</p>
+</blockquote>
 
-            Represents an instance which resolves the assembly references of a template.
-            </br></div>
-  <h3>Instance members</h3>
-  <table class="table table-bordered member-list">
-    <thead>
-      <tr><td>Instance member</td><td>Description</td></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="member-name">
+<p>To activate roslyn all you need to do is set the <code>CompilerServiceFactory</code> property in the configuration:</p>
 
-          <code onmouseout="hideTip(event, '487', 487)" onmouseover="showTip(event, '487', 487)">
-            GetReferences(...)
-          </code>
-          <div class="tip" id="487">
-            <strong>Signature:</strong> (context:TypeContext * includeAssemblies:IEnumerable&lt;string&gt;) -&gt; IEnumerable&lt;string&gt;<br />
-              <strong>Modifiers:</strong> abstract<br />
-                      </div>
-        </td>
-        <td class="xmldoc">
-          
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<pre class="line-numbers language-csharp"><code class="language-csharp">config.CompilerServiceFactory = new RazorEngine.Roslyn.RoslynCompilerServiceFactory();</code></pre>
+
+<h2><a name="Known-Limitation-Bugs" class="anchor" href="#Known-Limitation-Bugs">Known Limitation/Bugs</a></h2>
+
+<ul>
+<li>Debugging symbols do not work currently (If you know how Roslyn works please send a pull request!).</li>
+<li>No support for the net40 build as the roslyn nuget package doesn't support net40!</li>
+<li>Only C# support (VB.net support is kind of gone as Razor4 doesn't support VB.net).</li>
+<li>If you find more please open a issue!</li>
+</ul>
+
 
         </div>
         <div class="span3">
@@ -81,7 +80,7 @@
             <li class="nav-header">RazorEngine</li>
 
             <li class="divider"></li>
-            <li><a href="https://www.nuget.org/packages/RazorEngine.N/">Get RazorEngine package via NuGet</a></li>
+            <li><a href="https://www.nuget.org/packages/RazorEngine/">Get RazorEngine package via NuGet</a></li>
             <li><a href="https://github.com/matthid/RazorEngine">Source Code</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues">Open bugs and feature requests</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues/new">Report Issue or Request Feature</a></li>
@@ -99,6 +98,7 @@
             <li><a href="https://matthid.github.io/RazorEngine/DevelopReadme.html">Development Intro</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/ReleaseNotes.html">Release Notes</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/IntellisenseAndResharper.html">Intellisense and ReSharper</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Roslyn.html">Roslyn Support</a></li>
 
             <li class="nav-header">Reference</li>
               

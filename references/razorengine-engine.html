@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>UseCurrentAssembliesReferenceResolver - RazorEngine</title>
+    <title>Engine - RazorEngine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Matthew Abbott">
@@ -38,54 +38,50 @@
 
 
 
-<h1>UseCurrentAssembliesReferenceResolver </h1>
+<h1>Engine </h1>
 <div class="xmldoc">
     Defined in RazorEngine.dll.
 </div>
 <div class="xmldoc">
 
-            Resolves the assemblies by using all currently loaded assemblies. See <a href="razorengine-compilation-resolver-iassemblyreferenceresolver.html">IAssemblyReferenceResolver</a></br></div>
-  <h3>Constructors</h3>
+            Provides quick access to the functionality of the <a href="razorengine-templating-razorengineservice.html">RazorEngineService</a> class.
+            </br></div>
+  <h3>Static members</h3>
   <table class="table table-bordered member-list">
     <thead>
-      <tr><td>Constructor</td><td>Description</td></tr>
+      <tr><td>Static member</td><td>Description</td></tr>
     </thead>
     <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '488', 488)" onmouseover="showTip(event, '488', 488)">
-            new()
+          <code onmouseout="hideTip(event, '326', 326)" onmouseover="showTip(event, '326', 326)">
+            IsolatedRazor()
           </code>
-          <div class="tip" id="488">
-            <strong>Signature:</strong> unit -&gt; unit<br />
+          <div class="tip" id="326">
+            <strong>Signature:</strong> unit -&gt; IRazorEngineService<br />
                       </div>
         </td>
         <td class="xmldoc">
           
+            Quick access to an isolated RazorEngine. See <a href="razorengine-templating-irazorengineservice.html">IRazorEngineService</a>.
+            </br>
         </td>
       </tr>
-    </tbody>
-  </table>
-  <h3>Instance members</h3>
-  <table class="table table-bordered member-list">
-    <thead>
-      <tr><td>Instance member</td><td>Description</td></tr>
-    </thead>
-    <tbody>
       <tr>
         <td class="member-name">
 
-          <code onmouseout="hideTip(event, '489', 489)" onmouseover="showTip(event, '489', 489)">
-            GetReferences(...)
+          <code onmouseout="hideTip(event, '327', 327)" onmouseover="showTip(event, '327', 327)">
+            Razor()
           </code>
-          <div class="tip" id="489">
-            <strong>Signature:</strong> (context:TypeContext * includeAssemblies:IEnumerable&lt;string&gt;) -&gt; IEnumerable&lt;string&gt;<br />
-              <strong>Modifiers:</strong> abstract<br />
+          <div class="tip" id="327">
+            <strong>Signature:</strong> unit -&gt; IRazorEngineService<br />
                       </div>
         </td>
         <td class="xmldoc">
           
+            Quick access to RazorEngine. See <a href="razorengine-templating-irazorengineservice.html">IRazorEngineService</a>.
+            </br>
         </td>
       </tr>
     </tbody>
@@ -102,7 +98,7 @@
             <li class="nav-header">RazorEngine</li>
 
             <li class="divider"></li>
-            <li><a href="https://www.nuget.org/packages/RazorEngine.N/">Get RazorEngine package via NuGet</a></li>
+            <li><a href="https://www.nuget.org/packages/RazorEngine/">Get RazorEngine package via NuGet</a></li>
             <li><a href="https://github.com/matthid/RazorEngine">Source Code</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues">Open bugs and feature requests</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues/new">Report Issue or Request Feature</a></li>
@@ -120,6 +116,7 @@
             <li><a href="https://matthid.github.io/RazorEngine/DevelopReadme.html">Development Intro</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/ReleaseNotes.html">Release Notes</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/IntellisenseAndResharper.html">Intellisense and ReSharper</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Roslyn.html">Roslyn Support</a></li>
 
             <li class="nav-header">Reference</li>
               

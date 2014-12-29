@@ -45,7 +45,7 @@
 <pre class="line-numbers language-csharp"><code class="language-csharp">string template = &quot;@Raw(Model.Data)&quot;;
 var model = new { Data = &quot;My raw double quotes appears here \&quot;hello!\&quot;&quot; };
 
-string result = RazorService.RunCompile(template, &quot;templateKey&quot;, null, model);</code></pre>
+string result = Engine.Razor.RunCompile(template, &quot;templateKey&quot;, null, model);</code></pre>
 
 <p>Which should result in:</p>
 
@@ -65,7 +65,7 @@ string result = RazorService.RunCompile(template, &quot;templateKey&quot;, null,
             <li class="nav-header">RazorEngine</li>
 
             <li class="divider"></li>
-            <li><a href="https://www.nuget.org/packages/RazorEngine.N/">Get RazorEngine package via NuGet</a></li>
+            <li><a href="https://www.nuget.org/packages/RazorEngine/">Get RazorEngine package via NuGet</a></li>
             <li><a href="https://github.com/matthid/RazorEngine">Source Code</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues">Open bugs and feature requests</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues/new">Report Issue or Request Feature</a></li>
@@ -83,6 +83,7 @@ string result = RazorService.RunCompile(template, &quot;templateKey&quot;, null,
             <li><a href="https://matthid.github.io/RazorEngine/DevelopReadme.html">Development Intro</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/ReleaseNotes.html">Release Notes</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/IntellisenseAndResharper.html">Intellisense and ReSharper</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Roslyn.html">Roslyn Support</a></li>
 
             <li class="nav-header">Reference</li>
               

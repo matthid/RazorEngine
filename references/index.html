@@ -50,10 +50,12 @@
     <a href="#RazorEngine.Compilation">RazorEngine.Compilation</a><br />
     <a href="#RazorEngine.Compilation.CSharp">RazorEngine.Compilation.CSharp</a><br />
     <a href="#RazorEngine.Compilation.Inspectors">RazorEngine.Compilation.Inspectors</a><br />
-    <a href="#RazorEngine.Compilation.Resolver">RazorEngine.Compilation.Resolver</a><br />
+    <a href="#RazorEngine.Compilation.ReferenceResolver">RazorEngine.Compilation.ReferenceResolver</a><br />
     <a href="#RazorEngine.Compilation.VisualBasic">RazorEngine.Compilation.VisualBasic</a><br />
     <a href="#RazorEngine.Configuration">RazorEngine.Configuration</a><br />
     <a href="#RazorEngine.Configuration.Xml">RazorEngine.Configuration.Xml</a><br />
+    <a href="#RazorEngine.Roslyn">RazorEngine.Roslyn</a><br />
+    <a href="#RazorEngine.Roslyn.CSharp">RazorEngine.Roslyn.CSharp</a><br />
     <a href="#RazorEngine.Templating">RazorEngine.Templating</a><br />
     <a href="#RazorEngine.Templating.Parallel">RazorEngine.Templating.Parallel</a><br />
     <a href="#RazorEngine.Text">RazorEngine.Text</a><br />
@@ -712,6 +714,14 @@
         </tr>
         <tr>
           <td class="type-name">
+            <a href="razorengine-engine.html">Engine</a>
+          </td>
+          <td class="xmldoc">
+            Provides quick access to the functionality of the <a href="razorengine-templating-razorengineservice.html">RazorEngineService</a> class.
+            </br></td>
+        </tr>
+        <tr>
+          <td class="type-name">
             <a href="razorengine-language.html">Language</a>
           </td>
           <td class="xmldoc">
@@ -730,14 +740,6 @@
           </td>
           <td class="xmldoc">
             Provides quick access to template functions.
-            </br></td>
-        </tr>
-        <tr>
-          <td class="type-name">
-            <a href="razorengine-razorservice.html">RazorService</a>
-          </td>
-          <td class="xmldoc">
-            Provides quick access to the functionality of the <a href="razorengine-templating-razorengineservice.html">RazorEngineService</a> class.
             </br></td>
         </tr>
     </tbody>
@@ -948,7 +950,7 @@
   </table>
 
     </div>
-    <h2><a href="#Overview"><img src="https://matthid.github.io/RazorEngine/content/img/back_to_top.png" alt="Back to top" /></a> <a name="RazorEngine.Compilation.Resolver" class="anchor" href="#RazorEngine.Compilation.Resolver">RazorEngine.Compilation.Resolver Namespace</a></h2>
+    <h2><a href="#Overview"><img src="https://matthid.github.io/RazorEngine/content/img/back_to_top.png" alt="Back to top" /></a> <a name="RazorEngine.Compilation.ReferenceResolver" class="anchor" href="#RazorEngine.Compilation.ReferenceResolver">RazorEngine.Compilation.ReferenceResolver Namespace</a></h2>
     <div>
         <table class="table table-bordered type-list">
     <thead>
@@ -957,18 +959,22 @@
     <tbody>
         <tr>
           <td class="type-name">
-            <a href="razorengine-compilation-resolver-iassemblyreferenceresolver.html">IAssemblyReferenceResolver</a>
+            <a href="razorengine-compilation-referenceresolver-compilerreference.html">CompilerReference</a>
           </td>
-          <td class="xmldoc">
-            Represents an instance which resolves the assembly references of a template.
-            </br></td>
+          <td class="xmldoc"></td>
         </tr>
         <tr>
           <td class="type-name">
-            <a href="razorengine-compilation-resolver-usecurrentassembliesreferenceresolver.html">UseCurrentAssembliesReferenceResolver</a>
+            <a href="razorengine-compilation-referenceresolver-ireferenceresolver.html">IReferenceResolver</a>
+          </td>
+          <td class="xmldoc"></td>
+        </tr>
+        <tr>
+          <td class="type-name">
+            <a href="razorengine-compilation-referenceresolver-usecurrentassembliesreferenceresolver.html">UseCurrentAssembliesReferenceResolver</a>
           </td>
           <td class="xmldoc">
-            Resolves the assemblies by using all currently loaded assemblies. See <a href="razorengine-compilation-resolver-iassemblyreferenceresolver.html">IAssemblyReferenceResolver</a></br></td>
+            Resolves the assemblies by using all currently loaded assemblies. See UNRESOLVED(!:IAssemblyResolver)</br></td>
         </tr>
     </tbody>
   </table>
@@ -1130,6 +1136,52 @@
           </td>
           <td class="xmldoc">
             Represents a template service configuration that supports the xml configuration mechanism.
+            </br></td>
+        </tr>
+    </tbody>
+  </table>
+
+    </div>
+    <h2><a href="#Overview"><img src="https://matthid.github.io/RazorEngine/content/img/back_to_top.png" alt="Back to top" /></a> <a name="RazorEngine.Roslyn" class="anchor" href="#RazorEngine.Roslyn">RazorEngine.Roslyn Namespace</a></h2>
+    <div>
+        <table class="table table-bordered type-list">
+    <thead>
+      <tr><td>Type</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="type-name">
+            <a href="razorengine-roslyn-roslyncompilerservicefactory.html">RoslynCompilerServiceFactory</a>
+          </td>
+          <td class="xmldoc">
+            Provides a implementation of <a href="http://msdn.microsoft.com/en-us/library/RazorEngine.Compilation.ICompilerServiceFactory">ICompilerServiceFactory</a> for the Roslyn implementation.
+            </br></td>
+        </tr>
+    </tbody>
+  </table>
+
+    </div>
+    <h2><a href="#Overview"><img src="https://matthid.github.io/RazorEngine/content/img/back_to_top.png" alt="Back to top" /></a> <a name="RazorEngine.Roslyn.CSharp" class="anchor" href="#RazorEngine.Roslyn.CSharp">RazorEngine.Roslyn.CSharp Namespace</a></h2>
+    <div>
+        <table class="table table-bordered type-list">
+    <thead>
+      <tr><td>Type</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td class="type-name">
+            <a href="razorengine-roslyn-csharp-csharproslyncompilerservice.html">CSharpRoslynCompilerService</a>
+          </td>
+          <td class="xmldoc">
+            A concrete <a href="http://msdn.microsoft.com/en-us/library/RazorEngine.Compilation.ICompilerService">ICompilerService</a> implementation for C# by using the Roslyn compiler.
+            </br></td>
+        </tr>
+        <tr>
+          <td class="type-name">
+            <a href="razorengine-roslyn-csharp-roslyncompilerservicebase.html">RoslynCompilerServiceBase</a>
+          </td>
+          <td class="xmldoc">
+            Base compiler service class for roslyn compilers
             </br></td>
         </tr>
     </tbody>
@@ -1301,14 +1353,6 @@
         </tr>
         <tr>
           <td class="type-name">
-            <a href="razorengine-templating-irazorenginecore.html">IRazorEngineCore</a>
-          </td>
-          <td class="xmldoc">
-            Defines an internal contract for compiling and running templates without caching.
-            </br></td>
-        </tr>
-        <tr>
-          <td class="type-name">
             <a href="razorengine-templating-irazorengineservice.html">IRazorEngineService</a>
           </td>
           <td class="xmldoc">
@@ -1421,6 +1465,12 @@
             This implementation assumes that the template-names are unique and returns the name as unique key.
             (So this implementation is used by <a href="razorengine-templating-delegatetemplatemanager.html">DelegateTemplateManager</a> and <a href="razorengine-configuration-xml-wrappertemplatemanager.html">WrapperTemplateManager</a>.
             </br></td>
+        </tr>
+        <tr>
+          <td class="type-name">
+            <a href="razorengine-templating-razorenginecompilererror.html">RazorEngineCompilerError</a>
+          </td>
+          <td class="xmldoc"></td>
         </tr>
         <tr>
           <td class="type-name">
@@ -1689,6 +1739,12 @@
           </td>
           <td class="xmldoc"></td>
         </tr>
+        <tr>
+          <td class="type-name">
+            <a href="global-_module_.html"><Module></a>
+          </td>
+          <td class="xmldoc"></td>
+        </tr>
     </tbody>
   </table>
 
@@ -1705,7 +1761,7 @@
             <li class="nav-header">RazorEngine</li>
 
             <li class="divider"></li>
-            <li><a href="https://www.nuget.org/packages/RazorEngine.N/">Get RazorEngine package via NuGet</a></li>
+            <li><a href="https://www.nuget.org/packages/RazorEngine/">Get RazorEngine package via NuGet</a></li>
             <li><a href="https://github.com/matthid/RazorEngine">Source Code</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues">Open bugs and feature requests</a></li>
             <li><a href="https://github.com/matthid/RazorEngine/issues/new">Report Issue or Request Feature</a></li>
@@ -1723,6 +1779,7 @@
             <li><a href="https://matthid.github.io/RazorEngine/DevelopReadme.html">Development Intro</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/ReleaseNotes.html">Release Notes</a></li>
             <li><a href="https://matthid.github.io/RazorEngine/IntellisenseAndResharper.html">Intellisense and ReSharper</a></li>
+            <li><a href="https://matthid.github.io/RazorEngine/Roslyn.html">Roslyn Support</a></li>
 
             <li class="nav-header">Reference</li>
               
