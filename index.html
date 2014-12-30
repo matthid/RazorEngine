@@ -36,7 +36,7 @@
       <div class="row">
         <div class="span9" id="main">
           
-<!-- GENERATED FROM COMMIT: 5f41586736abb05867d5bf3b8e9c330aacc24f7b -->
+<!-- GENERATED FROM COMMIT: 778650c05122775a552160cdc143e6645600080b -->
 <h1><a name="RazorEngine" class="anchor" href="#RazorEngine">RazorEngine</a></h1>
 
 <p>Documentation also available on <a href="http://antaris.github.io/RazorEngine/.">http://antaris.github.io/RazorEngine/.</a></p>
@@ -177,14 +177,20 @@ However the compiler needs to be able to resolve everything and the default stra
 This can lead to problems when you want to use a library (in the template) which is not referenced in the 
 hosting code or not loaded by the runtime (because it is unused).
 It is also possible that you run into problems on Mono because mcs behaves differently.
-To be able to resolve such issues you can control this behaviour and set your own <code>IAssemblyReferenceResolver</code> implementation.</p>
+To be able to resolve such issues you can control this behaviour and set your own <code>IReferenceResolver</code> implementation.</p>
 
 <pre class="line-numbers language-csharp"><code class="language-csharp">config.ReferenceResolver = new MyIReferenceResolver();
 
-class MyIReferenceResolver : IAssemblyReferenceResolver {
-    public IEnumerable&lt;string&gt; GetReferences(TypeContext context, IEnumerable&lt;string&gt; includeAssemblies) {
+class MyIReferenceResolver : IReferenceResolver {
+    public IEnumerable&lt;CompilerReference&gt; GetReferences(TypeContext context, IEnumerable&lt;CompilerReference&gt; includeAssemblies) {
+        // TypeContext gives you some context for the compilation (which templates, which namespaces and types)
         // My templates need some special reference to compile.
-        return new [] { &quot;Path-to-my-custom-assembly&quot;; };
+        return new [] { 
+            CompilerReference.From(&quot;Path-to-my-custom-assembly&quot;), // file path (string)
+            CompilerReference.From(typeof(MyType).Assembly), // Assembly
+            CompilerReference.From(assemblyInByteArray), // byte array (roslyn only)
+            CompilerReference.From(File.OpenRead(assembly)), // stream (roslyn only)
+        };
     }
 }</code></pre>
 
@@ -194,10 +200,7 @@ You can get and modify this list (and return it in your own implementation if yo
 
 <pre class="line-numbers language-csharp"><code class="language-csharp">var loadedList = (new UseCurrentAssembliesReferenceResolver()).GetReferences(null)</code></pre>
 
-<h2><a name="General-API-design" class="anchor" href="#General-API-design">General API design</a></h2>
-
-<p>While the static <code>Engine</code> class is a good and quick way to start I recommend 
-using the instance based API (<code>RazorEngineService.Create</code>) sooner or later.</p>
+<h2><a name="More" class="anchor" href="#More">More</a></h2>
 
 <p>On the right side you can find links to advanced topics and additional documentation.
 You should definitely read "About Razor" and "Template basics".</p>
